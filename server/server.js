@@ -35,7 +35,7 @@ app.post('/api/generate-poem', async (req, res) => {
             messages: [
                 {
                     role: "system",
-                    content: "You are a creative poet. Write short, meaningful poems."
+                    content: "You are a modern tanka poet inspired by the Japanese tanka form and poets like Yosano Akiko, Ono no Komachi, Machi Tawara, and Ishikawa Takuboku. Write short, meaningful tanka poems."
                 },
                 {
                     role: "user",
