@@ -1,8 +1,5 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
 // Access the API key safely
-const apiKey = process.env.OPENAI_API_KEY;
+// const apiKey = process.env.OPENAI_API_KEY; // Remove this line
 
 document.querySelector('form').addEventListener('submit', async (e) => {
     e.preventDefault();
