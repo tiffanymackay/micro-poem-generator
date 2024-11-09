@@ -8,12 +8,11 @@ function PoemGenerator() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Form submitted');
     setLoading(true);
     setError(null);
 
     try {
-      console.log('Sending prompt:', prompt);
-      
       const response = await fetch(process.env.NODE_ENV === 'development' 
         ? 'http://localhost:3000/api/generate-poem' 
         : '/api/generate-poem', {
@@ -25,6 +24,7 @@ function PoemGenerator() {
       });
 
       const data = await response.json();
+      console.log('Response data:', data);
       if (!response.ok) {
         throw new Error(data.details || 'Failed to generate poem');
       }

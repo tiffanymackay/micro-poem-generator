@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import OpenAI from 'openai';
 import rateLimit from 'express-rate-limit';
+import path from 'path';
 
 dotenv.config();
 
@@ -35,11 +36,11 @@ app.post('/api/generate-poem', async (req, res) => {
             messages: [
                 {
                     role: "system",
-                    content: "You are a modern tanka poet inspired by the Japanese tanka form and poets like Yosano Akiko, Ono no Komachi, Machi Tawara, and Ishikawa Takuboku. Write short, meaningful tanka poems."
+                    content: "You are an expert contemporary tanka poet inspired by famous tanka poets like Ono no Komachi, Machi Tawara, and Ishikawa Takuboku. Distill their styles into the poem you write."
                 },
                 {
                     role: "user",
-                    content: `Write a short, creative poem about: ${prompt}`
+                    content: `Write a contemporary tanka poem about: ${prompt}`
                 }
             ],
             max_tokens: 150,
@@ -50,16 +51,16 @@ app.post('/api/generate-poem', async (req, res) => {
         res.json({ poem });
     } catch (error) {
         console.error('Error:', error);
-        res.status(500).json({ error: 'Failed to generate poem' });
+        res.status(500).json({ error: 'Failed to generate poem', details: error.message });
     }
 });
 
-// Serve static files from the root directory
-app.use(express.static('path/to/your/build/folder'));
+// Serve static files from the build directory
+app.use(express.static('build'));
 
-// Add this route handler
+// Serve the index.html file for the root route
 app.get('/', (req, res) => {
-    res.send('Hello World!'); // Or serve your HTML file
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.listen(port, () => {
