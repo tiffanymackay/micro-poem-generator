@@ -1,5 +1,5 @@
-// Load environment variables
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Access the API key safely
 const apiKey = process.env.OPENAI_API_KEY;
