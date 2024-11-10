@@ -15,7 +15,7 @@ function PoemGenerator() {
     try {
       const response = await fetch(process.env.NODE_ENV === 'development' 
         ? 'http://localhost:3000/api/generate-poem' 
-        : '/api/generate-poem', {
+        : 'https://micropoetry.netlify.app/api/generate-poem', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
