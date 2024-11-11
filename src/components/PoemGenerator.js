@@ -11,11 +11,11 @@ function PoemGenerator() {
     console.log('Form submitted');
     setLoading(true);
     setError(null);
-https://micropoetry.netlify.app/
+
     try {
       const response = await fetch(process.env.NODE_ENV === 'development' 
         ? 'http://localhost:3000/api/generate-poem' 
-        : 'http://localhost:3000/api/generate-poem' , {
+        : 'https://micropoetry.netlify.app/.netlify/functions/generate-poem', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
