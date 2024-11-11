@@ -18,7 +18,7 @@ function App() {
           Tiffany Mackay
         </a>
         , and is{' '}
-        <a href="https://github.com/tiffanymackay/Croissant" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/tiffanymackay/micro-poem-generator" target="_blank" rel="noopener noreferrer">
           open-sourced
         </a>
         .<br />© 2024 Tiffany Mackay
